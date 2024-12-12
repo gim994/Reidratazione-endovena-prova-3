@@ -1,0 +1,555 @@
+body {
+    font-family: Arial, sans-serif;
+	text-align: center;
+    margin: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.header {
+    display: flex;
+    align-items: center; /* Allinea verticalmente */
+    justify-content: space-between; /* Distribuisce spazio tra testo e logo */
+    gap: 10px; /* Spaziatura tra logo e testo */
+    padding: 10px;
+}
+
+#logo {
+    height: 150px; /* Altezza iniziale */
+    width: auto; /* Mantiene le proporzioni */
+}
+
+
+#infoBox {
+    display: block; /* Visibile all'avvio */
+}
+
+#formulebox {
+    display: none; /* Nascosto all'avvio */
+}
+
+#numberOutput0Container,
+#numberOutput12Container {
+    display: none;
+}
+
+/* Nascondi le celle 2 e 3 della riga 12 */
+table tr:nth-child(12) td:nth-child(3),
+table tr:nth-child(12) td:nth-child(4) {
+    display: none;
+}
+
+/* Nascondi le celle 2 e 3 della riga 12 */
+table tr:nth-child(13) td:nth-child(3),
+table tr:nth-child(13) td:nth-child(4) {
+    display: none;
+}
+
+/* Stile per il cerchietto con il punto interrogativo */
+.input-container label {
+    margin-right: 4px; /* Spazio tra l'etichetta e l'icona */
+    white-space: nowrap; /* Impedisce che l'etichetta vada a capo */
+}
+
+.output-container label {
+    margin-right: 4px; /* Spazio tra l'etichetta e l'icona */
+    white-space: nowrap; /* Impedisce che l'etichetta vada a capo */
+}
+
+.tooltip-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    background-color: #ff0000;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+/* Tooltip per il testo */
+.tooltip-text {
+    display: none;
+    position: absolute;
+    top: -5px;
+    left: 30px; /* Sposta il testo del tooltip a destra dell'icona */
+    width: 300px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+    white-space: normal;
+    font-size: 14px;
+    z-index: 10;
+}
+
+/* Nascondi la riga 9 */
+table tr:nth-child(9) {
+    display: none;
+}
+
+/* Nascondi la riga 15 */
+table tr:nth-child(14) {
+    display: none;
+}
+
+
+/* Nascondi la riga 16 */
+table tr:nth-child(16) {
+    display: none;
+}
+
+/* Nascondi la riga 16 */
+table tr:nth-child(17) {
+    display: none;
+}
+
+
+/* Mostra il tooltip al passaggio del mouse */
+.tooltip-icon:hover .tooltip-text {
+    display: flex;
+}
+
+.tooltip-text.show {
+    opacity: 1;
+}
+
+#tooltipIcon19:hover #tooltipText19 {
+    display: flex;
+    left: -300px; /* Posiziona la tooltip a sinistra */
+}
+
+.info-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Occupa il 90% dell'altezza dello schermo */
+  background-color: #f4f4f4;
+  border-bottom: 2px solid #ccc;
+  text-align: left;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow-y: auto; /* Abilita lo scrolling verticale */
+  line-height: 1.6; /* Aumenta lo spazio tra le righe per migliorare la leggibilità */
+}
+
+.info-box p {
+  margin-bottom: 15px;
+  text-align: justify; /* Per allineare il testo sui due margini */
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.info-box ol {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.info-box ol li {
+  margin-bottom: 10px; /* Aggiungi spazio tra ogni elemento della lista */
+}
+
+.info-box button {
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-left: 40px;
+  margin-bottom: 100px;
+  padding: 15px 30px; /* Aumenta il padding per ingrandire il pulsante */
+  height: auto; /* Imposta un'altezza automatica se vuoi che si adatti al contenuto */
+  font-size: 18px; /* Aumenta la dimensione del testo */	
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.info-box button:hover {
+  background-color: #0056b3;
+}
+
+
+.container-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;  /* Consente ai contenitori di andare a capo su più righe */
+    gap: 50px; /* Spazio tra i container */
+    max-width: 2000px; /* regola larghezza dei vari container */
+    width: 100%;
+}
+
+
+.container {
+    background-color: #f4f4f4;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 2px;
+    flex: 1 1 200px; /* Permette ai container di avere una base di 300px ma di crescere se c'è spazio */
+    margin-bottom: 20px; /* Spazio tra i container verticalmente */
+	margin-right: 50px;
+	margin-left: 50px;
+    border: none; /* Rimuove il bordo esterno */
+	align-self: baseline;	
+	order: 2;
+}
+
+.containermenù{
+    background-color: #f4f4f4;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 2px;
+    flex: 0.5 1 40px; /* Permette ai container di avere una base di 300px ma di crescere se c'è spazio */
+    margin-bottom: 20px; /* Spazio tra i container verticalmente */
+	margin-right: 50px;
+	margin-left: 50px;
+    border: none; /* Rimuove il bordo esterno */
+	align-self: baseline;
+	order: 0;
+}
+
+.container2 {
+    background-color: #f4f4f4;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 2px;
+    flex: 1 1 200px; /* Permette ai container di avere una base di 300px ma di crescere se c'è spazio */
+    margin-bottom: 20px; /* Spazio tra i container verticalmente */
+	border: 0;
+	margin-right: 50px;
+	margin-left: 50px;	
+	align-self: baseline;
+	order: 2;	
+}
+
+.container4 {
+    background-color: #f4f4f4;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 2px;
+    flex: 2 1 1000px; /* Permette ai container di avere una base di 300px ma di crescere se c'è spazio */
+    margin-bottom: 20px; /* Spazio tra i container verticalmente */
+	margin-right: 50px;
+	margin-left: 50px;		
+    border: none; /* Rimuove il bordo esterno */
+	order: 4;
+}
+
+.container-large {
+    flex: 1 1 1000px; /* La "Score Table" occuperà più spazio rispetto agli altri container */
+	align-self: baseline;
+	margin-right: 50px;
+	margin-left: 50px;
+	order: 3;
+}
+
+.option-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.option-buttons1 {
+    display: flex;
+    flex-direction: column; /* Dispone i bottoni in colonna */
+    flex-wrap: wrap; /* Permette ai bottoni di andare a capo */
+	justify-content: space-between; /* Spazio uniforme tra i bottoni */
+    margin-bottom: 15px;
+	gap: 15px; /* Spazio tra i bottoni */
+    width: 100%;
+}
+
+.square-btn {
+    flex-grow: 1;
+    height: 35px;
+    border: 2px solid #ff0000;
+    border-radius: 2px;
+    background-color: white;
+    color: #ff0000;
+    cursor: pointer;
+    transition: background-color 0.1s, color 0.1s;
+    font-size: 13px;
+    margin: 0 5px;
+}
+
+.square-btn.active {
+    background-color: #ff0000;
+    color: white;
+}
+
+.input-container, .output-container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 4px;
+    flex: 1 1 100%; /* Fa sì che gli elementi riempiano tutta la larghezza disponibile */
+}
+
+.input-container label, .output-container label {
+    margin-top: 5px;
+	margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.input-container input, 
+.output-container input, 
+.input-container select, 
+.output-container select, 
+.output-field {
+    padding: 10px;
+    border: 2px solid #ff0000;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+	margin-right: 10px;
+}
+
+.output-container .output-field {
+    height: 40px;
+    margin-top: 10px;
+	text-align: center;
+}
+
+.age-selection {
+    display: flex;
+    align-items: center;
+}
+
+.age-selection select {
+    margin-right: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.hidden-maintain-space {
+    display: none; /* Nasconde completamente l'elemento */
+    flex: 0 0 auto; /* Assicura che non occupi spazio */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #ff0000;
+}
+
+table td, table th {
+    border: 2px solid #ff0000;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+table th {
+    background-color: #ff0000;
+    color: white;
+}
+
+table td {
+    background-color: #fff;
+    color: #000;
+}
+
+.hidden-container {
+    display: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.score-select {
+    width: 100%;
+    padding: 5px;
+    border: 2px solid #ff0000;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.square-btn.active {
+    background-color: #ff0000;
+    color: white;
+}
+
+.square-btn {
+    flex-grow: 1;
+    height: 35px;
+    border: 2px solid #ff0000;
+    border-radius: 2px;
+    background-color: white;
+    color: #ff0000;
+    cursor: pointer;
+    transition: background-color 0.1s, color 0.1s;
+    font-size: 13px;
+    margin: 0 5px;
+}
+
+.infusione-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.infusione2-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.infusione-output-field {
+    width: 50px; 
+    padding: 5px;
+    border: 2px solid #ff0000;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center; /* Centra il testo all'interno degli input */
+	margin-right: 5px
+}
+
+.infusionemldoppio-output-field {
+    padding: 10px;
+    border: 2px solid #ff0000;
+    border-radius: 4px;
+    box-sizing: border-box;
+	margin-top: 10px;
+    width: 100%;
+	text-align: center;
+}
+
+.infusione-row label {
+    margin-right: 10px;
+    font-weight: bold;
+    text-align: right;
+}
+
+
+.solution-select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ff0000;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px; /* Spazio sotto il selettore */	
+}
+
+table input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    border: 2px solid #ff0000;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+    .container-wrapper {
+        justify-content: center; /* Centra i container su schermi più piccoli */
+    }
+
+    .container {
+        min-width: 100%; /* I container prendono tutta la larghezza disponibile su schermi stretti */
+    }
+
+	
+	.container2 {
+	min-width: 100%;	
+    flex: 1 1 100%; /* Permette ai container di avere una base di 300px ma di crescere se c'è spazio */
+    margin-bottom: 20px; /* Spazio tra i container verticalmente */
+	margin-right: 10px;
+	margin-left: 10px;	
+}
+	
+	.header {
+        flex-direction: column; /* Impila il logo e il testo verticalmente */
+        align-items: center; /* Centra il contenuto */
+        text-align: center; /* Centra il testo */
+        gap: 15px; /* Più spazio tra elementi */
+    }
+
+    #logo {
+        height: 120px; /* Riduce leggermente il logo */
+    }
+	
+	.containermenù{
+        flex-direction: row; /* Dispone i bottoni in riga */	
+        flex-wrap: wrap; /* Permette ai bottoni di andare a capo */
+}
+	
+	
+    .option-buttons1 {
+        flex-direction: row; /* Dispone i bottoni in riga */
+        flex-wrap: wrap; /* Permette ai bottoni di andare a capo se necessario */
+        justify-content: space-between; /* Spazio uniforme tra i bottoni */
+        gap: 15px; /* Spaziatura tra i bottoni */
+    }
+
+    .option-buttons1 button {
+        flex: 1 1 calc(33.33% - 15px); /* Ogni bottone occupa un terzo dello spazio meno il gap */
+        min-width: 120px; /* Larghezza minima per evitare che i bottoni diventino troppo piccoli */
+        text-align: center; /* Centra il testo dei bottoni */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        min-width: 100%; /* I container prendono tutta la larghezza disponibile su schermi stretti */
+    }
+
+	.container2 {
+        min-width: 100%; /* I container prendono tutta la larghezza disponibile su schermi stretti */
+    }
+
+    .square-btn {
+        width: 100px;
+    }
+	    .info-box button {
+        width: 100%; /* Il pulsante sarà largo l'80% della larghezza disponibile */
+        padding: 10px 0; /* Un padding più equilibrato */
+        font-size: 1.2rem; /* Usa rem per una dimensione proporzionata del testo */
+    }
+	
+	    .header {		
+	    min-width: 100%;	
+        flex-direction: column; /* Continua a impilare */
+        align-items: center; /* Rimane centrato */
+        text-align: center; /* Testo centrato */
+        gap: 10px;
+    }
+
+    #logo {
+        height: 100px; /* Riduce ulteriormente il logo */
+    }	
+	
+		.containermenù{
+        flex-direction: row; /* Dispone i bottoni in riga */	
+        flex-wrap: wrap; /* Permette ai bottoni di andare a capo */
+}
+	
+    .option-buttons1 {
+        flex-direction: row; /* Rimane in riga */
+        flex-wrap: wrap; /* Permette ai bottoni di andare a capo */
+        gap: 10px; /* Spaziatura più ridotta su schermi piccoli */
+    }
+
+    .option-buttons1 button {
+        flex: 1 1 calc(50% - 10px); /* Ogni bottone occupa metà dello spazio disponibile */
+        min-width: 100px; /* Riduce ulteriormente la larghezza minima */
+        text-align: center; /* Centra il testo dei bottoni */
+    }
+	}
