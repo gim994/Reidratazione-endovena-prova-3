@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-	text-align: center;
+	text-align: left;
     margin: 20px;
 	margin-left: 20px;
 	margin-right: 20px;
@@ -33,22 +33,7 @@ body {
     display: none; /* Nascosto all'avvio */
 }
 
-#numberOutput0Container,
-#numberOutput12Container {
-    display: none;
-}
 
-/* Nascondi le celle 2 e 3 della riga 12 */
-table tr:nth-child(12) td:nth-child(3),
-table tr:nth-child(12) td:nth-child(4) {
-    display: none;
-}
-
-/* Nascondi le celle 2 e 3 della riga 12 */
-table tr:nth-child(13) td:nth-child(3),
-table tr:nth-child(13) td:nth-child(4) {
-    display: none;
-}
 
 /* Stile per il cerchietto con il punto interrogativo */
 .input-container label {
@@ -92,28 +77,6 @@ table tr:nth-child(13) td:nth-child(4) {
     z-index: 10;
 }
 
-/* Nascondi la riga 9 */
-table tr:nth-child(9) {
-    display: none;
-}
-
-/* Nascondi la riga 15 */
-table tr:nth-child(14) {
-    display: none;
-}
-
-
-/* Nascondi la riga 16 */
-table tr:nth-child(16) {
-    display: none;
-}
-
-/* Nascondi la riga 16 */
-table tr:nth-child(17) {
-    display: none;
-}
-
-
 /* Mostra il tooltip al passaggio del mouse */
 .tooltip-icon:hover .tooltip-text {
     display: flex;
@@ -121,11 +84,6 @@ table tr:nth-child(17) {
 
 .tooltip-text.show {
     opacity: 1;
-}
-
-#tooltipIcon19:hover #tooltipText19 {
-    display: flex;
-    left: -300px; /* Posiziona la tooltip a sinistra */
 }
 
 .info-box {
@@ -179,23 +137,13 @@ table tr:nth-child(17) {
 }
 
 
-.container-wrapper {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;  /* Consente ai contenitori di andare a capo su più righe */
-    gap: 50px; /* Spazio tra i container */
-    max-width: 2000px; /* regola larghezza dei vari container */
-    width: 100%;
-}
-
-
 .container {
     background-color: #f4f4f4;
     font-size: 13px;
     font-weight: bold;
     padding: 10px;
     border-radius: 2px;
-    flex: 1 1 200px; /* Permette ai container di avere una base di 300px ma di crescere se c'è spazio */
+    flex: 1 1 80px; /* Permette ai container di avere una base di 300px ma di crescere se c'è spazio */
     margin-bottom: 20px; /* Spazio tra i container verticalmente */
 	margin-right: 50px;
 	margin-left: 50px;
@@ -210,7 +158,7 @@ table tr:nth-child(17) {
     font-weight: bold;
     padding: 10px;
     border-radius: 2px;
-    flex: 0.5 1 40px; /* Permette ai container di avere una base di 300px ma di crescere se c'è spazio */
+    flex: 0.5 1 20px; /* Permette ai container di avere una base di 300px ma di crescere se c'è spazio */
     margin-bottom: 20px; /* Spazio tra i container verticalmente */
 	margin-right: 50px;
 	margin-left: 50px;
@@ -225,7 +173,7 @@ table tr:nth-child(17) {
     font-weight: bold;
     padding: 10px;
     border-radius: 2px;
-    flex: 1 1 200px; /* Permette ai container di avere una base di 300px ma di crescere se c'è spazio */
+    flex: 1 1 80px; /* Permette ai container di avere una base di 300px ma di crescere se c'è spazio */
     margin-bottom: 20px; /* Spazio tra i container verticalmente */
 	border: 0;
 	margin-right: 50px;
@@ -240,7 +188,7 @@ table tr:nth-child(17) {
     font-weight: bold;
     padding: 10px;
     border-radius: 2px;
-    flex: 2 1 1000px; /* Permette ai container di avere una base di 300px ma di crescere se c'è spazio */
+    flex: 2 1 300px; /* Permette ai container di avere una base di 300px ma di crescere se c'è spazio */
     margin-bottom: 20px; /* Spazio tra i container verticalmente */
 	margin-right: 50px;
 	margin-left: 50px;		
@@ -249,7 +197,7 @@ table tr:nth-child(17) {
 }
 
 .container-large {
-    flex: 1 1 1000px; /* La "Score Table" occuperà più spazio rispetto agli altri container */
+    flex: 1 1 450px; /* La "Score Table" occuperà più spazio rispetto agli altri container */
 	align-self: baseline;
 	margin-right: 50px;
 	margin-left: 50px;
@@ -406,13 +354,6 @@ table td {
     margin-top: 10px;
 }
 
-.infusione2-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 5px;
-}
-
 .infusione-output-field {
     width: 50px; 
     padding: 5px;
@@ -458,12 +399,14 @@ table input[type="number"] {
 }
 
 @media (max-width: 1024px) {
-    .container-wrapper {
-        justify-content: center; /* Centra i container su schermi più piccoli */
-    }
+
 
     .container {
-        min-width: 100%; /* I container prendono tutta la larghezza disponibile su schermi stretti */
+    min-width: 100%; /* I container prendono tutta la larghezza disponibile su schermi stretti */
+    flex: 1 1 100%; 	
+	margin-bottom: 20px; /* Spazio tra i container verticalmente */
+	margin-right: 10px;
+	margin-left: 10px;	
     }
 
 	
@@ -508,12 +451,21 @@ table input[type="number"] {
 
 @media (max-width: 768px) {
     .container {
-        min-width: 100%; /* I container prendono tutta la larghezza disponibile su schermi stretti */
+    min-width: 100%; /* I container prendono tutta la larghezza disponibile su schermi stretti */
+    flex: 1 1 100%; 	
+	margin-bottom: 20px; /* Spazio tra i container verticalmente */
+	margin-right: 10px;
+	margin-left: 10px;	
     }
 
+	
 	.container2 {
-        min-width: 100%; /* I container prendono tutta la larghezza disponibile su schermi stretti */
-    }
+	min-width: 100%;	
+    flex: 1 1 100%; /* Permette ai container di avere una base di 300px ma di crescere se c'è spazio */
+    margin-bottom: 20px; /* Spazio tra i container verticalmente */
+	margin-right: 10px;
+	margin-left: 10px;	
+}
 
     .square-btn {
         width: 100px;
