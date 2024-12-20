@@ -2,11 +2,12 @@ const numberOutput1Container = document.getElementById('numberOutput1Container')
 const numberOutput2Container = document.getElementById('numberOutput2Container');
 const numberOutput3Container = document.getElementById('numberOutput3Container');
 const numberOutput4Container = document.getElementById('numberOutput4Container');
+const numberOutput5Container = document.getElementById('numberOutput5Container');
+
 
 // AGGIORNAMENTO CONTAINER OUTPUT
 let Galmeqlpart, Galglupercpart;
 let TotMl, Totmgkgmin, TotMeq, Totmlh, TotMeql;
-let infusionepercentglu;
 let mantenimentoMlh, mlh, mantenimentoMl, mantenimentoMlkg, TotaleMl, TotaleMlkg;
 let birthWeight = 0
 
@@ -206,17 +207,6 @@ tooltipIcon16.addEventListener('mouseleave', () => {
     tooltipText16.classList.remove('show');
 });
 
-// Tooltip per il secondo campo
-const tooltipIcon17 = document.getElementById('tooltipIcon17');
-const tooltipText17 = document.getElementById('tooltipText17');
-
-tooltipIcon17.addEventListener('mouseenter', () => {
-    tooltipText17.classList.add('show');
-});
-
-tooltipIcon17.addEventListener('mouseleave', () => {
-    tooltipText17.classList.remove('show');
-});
 
 // Tooltip per il secondo campo
 const tooltipIcon18 = document.getElementById('tooltipIcon18');
@@ -264,6 +254,30 @@ tooltipIcon21.addEventListener('mouseenter', () => {
 
 tooltipIcon21.addEventListener('mouseleave', () => {
     tooltipText21.classList.remove('show');
+});
+
+// Tooltip per il secondo campo
+const tooltipIcon22 = document.getElementById('tooltipIcon22');
+const tooltipText22 = document.getElementById('tooltipText22');
+
+tooltipIcon22.addEventListener('mouseenter', () => {
+    tooltipText22.classList.add('show');
+});
+
+tooltipIcon22.addEventListener('mouseleave', () => {
+    tooltipText22.classList.remove('show');
+});
+
+// Tooltip per il secondo campo
+const tooltipIcon23 = document.getElementById('tooltipIcon23');
+const tooltipText23 = document.getElementById('tooltipText23');
+
+tooltipIcon23.addEventListener('mouseenter', () => {
+    tooltipText23.classList.add('show');
+});
+
+tooltipIcon23.addEventListener('mouseleave', () => {
+    tooltipText23.classList.remove('show');
 });
 
 // Mostra infoBox e nasconde formuleBox quando si preme il pulsante "Info"
@@ -318,6 +332,7 @@ document.addEventListener('DOMContentLoaded', function() {
     numberOutput2Container.style.display = 'flex';
     numberOutput3Container.style.display = 'flex';
     numberOutput4Container.style.display = 'flex';
+    numberOutput5Container.style.display = 'flex';	
 	    
 	aggiornaSpecificheTable();  // Questa chiamata assicura che tutto sia calcolato e aggiornato correttamente all'inizio
 });
@@ -513,13 +528,13 @@ const pesoAttualeBtn = document.getElementById('pesoAttualeBtn');
 
 pesoBenessereBtn.addEventListener('click', function() {
     setActivePesoButton('pesoBenessereBtn');
-    document.getElementById('scoreTitleRow').cells[0].textContent = 'Score di Gorelick per Peso in Benessere Sconosciuto, completare i campi per una stima';
+    document.getElementById('scoreTitleRow').cells[0].textContent = 'Score di Gorelick per Peso in Benessere non noto, completa i campi';
     document.getElementById('pesoStimatoLabel').textContent = 'Peso in Benessere/ Working Weight stimato (Kg)';
 });
 
 pesoAttualeBtn.addEventListener('click', function() {
     setActivePesoButton('pesoAttualeBtn');
-    document.getElementById('scoreTitleRow').cells[0].textContent = 'Score di Gorelick per Peso Attuale Sconosciuto, completare i campi per una stima';
+    document.getElementById('scoreTitleRow').cells[0].textContent = 'Score di Gorelick per Peso Attuale non noto, completa i campi';
     document.getElementById('pesoStimatoLabel').textContent = 'Peso Attuale Stimato (Kg)';
 });
 
@@ -540,7 +555,7 @@ document.getElementById('resetScoreBtn').addEventListener('click', function() {
 });
 
 document.getElementById('specificheBtn').addEventListener('click', function() {
-    toggleVisibility('Specifichetable', this, 'Bilancio', 'Nascondi Bilancio');
+    toggleVisibility('Specifichetable', this, 'Dettaglio', 'Nascondi Dettaglio');
     aggiornaSpecificheTable();
 });
 
@@ -582,13 +597,13 @@ function aggiornaSpecificheTable() {
     const temperatura = parseFloat(document.getElementById('temperatura').value) || 0;
     const glicemia = parseFloat(document.getElementById('glicemia').value) || 100;
     const febbre = temperatura < 38 ? 38 : temperatura;
-	const infusionepercentglu = parseFloat(document.getElementById('infusionepercentglu').value) || 0;
 	const Galmeql = parseFloat(document.getElementById('Galmeql') ? document.getElementById('Galmeql').value : 0) || 0;
 	const Galgluperc = parseFloat(document.getElementById('Galgluperc') ? document.getElementById('Galgluperc').value : 0) || 0;
 
 
     const Naig = Nai + 0.024 * (glicemia - 100);
     document.getElementById('naCorretto').value = Naig.toFixed(0);
+
 
 
 function mantenimentoMeq() {
@@ -614,8 +629,7 @@ function mantenimentoMeq() {
         mantenimentoMeq = 4 * WW;
     }
 
-    // Limita il valore massimo a 87 mEQ (2 g/die di Na)
-    return Math.min(mantenimentoMeq, 87);
+    return mantenimentoMeq;
 }
 	
     let ageInDays = calculateAgeInDays();
@@ -692,22 +706,30 @@ if (WW <= 3 && birthWeight >= 0 && ageInDays >= 30) {
 function mantenimentoMeql() {
     let ageInDays = calculateAgeInDays();
 
-    let mantenimentoMeql;
+    let mantenimentoMeql = mantenimentoMeq() / (mantenimentoMl / 1000);
 
     if (ageInDays <= 30) { // Età <= 30 giorni
-        mantenimentoMeql = mantenimentoMeq() / (mantenimentoMl / 1000);
+        return mantenimentoMeql; // Restituisce il valore calcolato
     } else { // Età > 30 giorni
-        mantenimentoMeql = 145;
+        // Restringe mantenimentoMeql tra 40 e 154
+        return Math.max(40, Math.min(mantenimentoMeql, 154));
     }
-
-    return mantenimentoMeql;
 }
+
+
+const infusionepercentgluType = document.getElementById('infusionepercentgluType').value;
+const infusionepercentglu = {
+        "G0": { glucosio: 0 },
+		"G2.5": { glucosio: 2.5 },
+        "G5": { glucosio: 5 },
+        "G10": { glucosio: 10 },
+    };		
+    const infusionipercentglu = infusionepercentglu[infusionepercentgluType] || { glucosio: 0 };
 
     const soluzioneMl = parseFloat(document.getElementById('soluzioneMl').value) || 0;
     const solutionType = document.getElementById('solutionType').value;
     const liquidiAggiuntiMl = parseFloat(document.getElementById('liquidiAggiuntiMl').value) || 0;
     const liquidiAggiuntiNa = parseFloat(document.getElementById('liquidiAggiuntiNa').value) || 0;
-	const liquidiAggiuntiGlug = parseFloat(document.getElementById('liquidiAggiuntiGlug').value) || 0;
 
     const soluzioni = {
         "SF0.9": { mEq: 154, glucosio: 0 },
@@ -749,12 +771,22 @@ function mantenimentoMeql() {
     const soluzioneMlkg = soluzioneMl / WW;
     const liquidiAggiuntiMlkg = liquidiAggiuntiMl / WW;
     const liquidiAggiuntimeql = liquidiAggiuntiNa / (liquidiAggiuntiMl / 1000) || 0;
-    const mgkgminmantenimento = (mantenimentoMl * 10 * infusionepercentglu) / WW / 1440;
+    const mgkgminmantenimento = (mantenimentoMl * 10 * infusionipercentglu.glucosio) / WW / 1440;
     const mgkgminmsoluzione = (soluzioneMl * 10 * soluzione.glucosio) / WW / 1440;
-	const mgkgminliquidiaggiunti = (liquidiAggiuntiMl*10*(liquidiAggiuntiGlug*liquidiAggiuntiMl/100)) / WW / 1440 || 0;
 	const TotMl = PerditeMl + PerditeprevedibiliMl + mantenimentoMl - soluzioneMl - liquidiAggiuntiMl;
-    const Totmgkgmin = ((TotMl * 10 * infusionepercentglu) / WW / 1440) + mgkgminmsoluzione + mgkgminliquidiaggiunti;
+	
+		if (Naig >= 135 && Naig <= 145) {
+    SodioDaPerdereRecuperare = 0;
+} else {
+    SodioDaPerdereRecuperare = (Nap - Naig) * AcquaPerc * WW;
+}
+	
+    const TotMeq = ((PerditeMeq + SodioDaPerdereRecuperare)) + PerditeprevedibiliMeq + mantenimentoMeq() - soluzioneMeq - liquidiAggiuntiNa;
+    const Totmgkgmin = ((TotMl * 10 * infusionipercentglu.glucosio) / WW / 1440) + mgkgminmsoluzione;
     const Totmlh = TotMl / 24;
+	
+	let  TotMeql = TotMeq / (TotMl / 1000);
+    TotMeql = Math.max(TotMeql, 0);
 	
     let TotMlkg = 0;
     if (WW > 0) {
@@ -763,25 +795,10 @@ function mantenimentoMeql() {
         TotMlkg = 0; // Se WW è 0, impostiamo mantenimentoMlkg a 0
     }
 	
-let TotMeq = 0;
 
-if (Naig >= 135 && Naig <= 145) {
-    TotMeql = "Utilizzare soluzione isonatriemica";
-    SodioDaPerdereRecuperare = 0;
-} else {
-    SodioDaPerdereRecuperare = (Nap - Naig) * AcquaPerc * WW;
-    TotMeq = ((PerditeMeq + SodioDaPerdereRecuperare)) + PerditeprevedibiliMeq + mantenimentoMeq() - soluzioneMeq - liquidiAggiuntiNa;
-    TotMeql = TotMeq / (TotMl / 1000);
-    TotMeql = Math.max(TotMeql, 0);
-}
 
-// Aggiorna l'output nella tua interfaccia HTML
-if (TotMeql === "Utilizzare soluzione isonatriemica") {
-    document.getElementById('naOutputValue').textContent = TotMeql;
-} else {
-    document.getElementById('naOutputValue').textContent = TotMeql.toFixed(0);
-}
-
+document.getElementById('nameqOutputValue').textContent = TotMeq.toFixed(0);	
+document.getElementById('naOutputValue').textContent = TotMeql.toFixed(0);
 document.getElementById('mlhOutputValue').textContent = Totmlh.toFixed(0);
 document.getElementById('mlOutputValue').textContent = TotMl.toFixed(0);
 document.getElementById('glucosioOutputValue').textContent = Totmgkgmin.toFixed(0);
@@ -829,7 +846,6 @@ document.getElementById('glucosioOutputValue').textContent = Totmgkgmin.toFixed(
         tableRows[7].cells[2].textContent = liquidiAggiuntiNa.toFixed(0);
         tableRows[7].cells[3].textContent = liquidiAggiuntiMlkg.toFixed(0);
         tableRows[7].cells[5].textContent = liquidiAggiuntimeql.toFixed(0);
-        tableRows[7].cells[6].textContent =	mgkgminliquidiaggiunti.toFixed(0);
     }
 
     if (tableRows.length > 8) {
@@ -877,42 +893,41 @@ document.getElementById('liquidiAggiuntiNa').addEventListener('input', aggiornaS
 document.getElementById('glicemia').addEventListener('input', aggiornaSpecificheTable);
 document.getElementById('Galmeql').addEventListener('input', aggiornaSpecificheTable);
 document.getElementById('Galgluperc').addEventListener('input', aggiornaSpecificheTable);
-document.getElementById('infusionepercentglu').addEventListener('input', aggiornaSpecificheTable);
+document.getElementById('infusionepercentgluType').addEventListener('change', aggiornaSpecificheTable);
 
 document.querySelectorAll('.score-select').forEach(select => {
     select.addEventListener('change', aggiornaScoretable);
 });
 
 document.getElementById('Nai').addEventListener('input', function() {
-    const nai = parseFloat(this.value);
+    const Naig = parseFloat(this.value);
     const napSelect = document.getElementById('Nap');
     napSelect.innerHTML = '';
 
-    if (!isNaN(nai)) {
+    if (!isNaN(Naig)) {
         let minNap, maxNap;
 
-        if (nai <= 105) {
-            minNap = nai + 1;
-            maxNap = nai + 6;
-        } else if (nai > 105 && nai <= 115) {
-            minNap = nai + 1;
-            maxNap = nai + 12;
-        } else if (nai > 115 && nai < 135) {
-            minNap = nai + 1;
-            maxNap = nai + 24;			
+        if (Naig <= 105) {
+            minNap = Naig + 1;
+            maxNap = Naig + 6;
+        } else if (Naig > 105 && Naig <= 115) {
+            minNap = Naig + 1;
+            maxNap = Naig + 12;
+        } else if (Naig > 115 && Naig < 135) {
+            minNap = Naig + 1;
+            maxNap = Naig + 24;			
 			
-        } else if (nai >= 135 && nai <= 145) {
-            minNap = nai;
-            maxNap = nai;
-        } else if (nai > 145 && nai < 165) {
-            minNap = nai - 24;
-            maxNap = nai - 1;			
-        } else if (nai >= 165 && nai < 175) {
-            minNap = nai - 12;
-            maxNap = nai - 1;
-        } else if (nai >= 175) {
-            minNap = nai - 6;
-            maxNap = nai - 1;
+        } else if (Naig >= 135 && Naig <= 145) {
+            Nap = Naig;
+        } else if (Naig > 145 && Naig < 165) {
+            minNap = Naig - 24;
+            maxNap = Naig - 1;			
+        } else if (Naig >= 165 && Naig < 175) {
+            minNap = Naig - 12;
+            maxNap = Naig - 1;
+        } else if (Naig >= 175) {
+            minNap = Naig - 6;
+            maxNap = Naig - 1;
         }
 
         for (let i = minNap; i <= maxNap; i++) {
@@ -963,7 +978,7 @@ document.getElementById('resetAllBtn').addEventListener('click', function() {
     // Resetta i testi dei pulsanti a quelli iniziali
     document.getElementById('advancedBtn').textContent = 'Avanzato';
     document.getElementById('ScoreBtn').textContent = 'Score';
-    document.getElementById('specificheBtn').textContent = 'Bilancio';
+    document.getElementById('specificheBtn').textContent = 'Dettaglio';
 
     // Aggiorna eventuali calcoli che potrebbero essere necessari dopo il reset
     aggiornaScoretable();
