@@ -10,7 +10,11 @@
 <div id="infoBox" class="info-box">
 <div class="header">
 <img src="https://res.cloudinary.com/dettkhosb/image/upload/v1732532486/GMC_SEMPLICE_lwtuvy.png" id="logo">
-<h1><em><p><strong>Quanta acqua e quanto sale? Quì una risposta rapida e precisa alla portata di tutti!</strong></p></em></h1>  
+<h1>
+  <p><em><strong>Reidratazione: Quanta acqua e quanto sale?</strong></em>
+  <br>
+  <small><em><strong>Quì una risposta rapida e precisa alla portata di tutti! </em></strong></small></p>
+</h1>
 </div>
 <p><strong>Introduzione</strong></p>
 <p>La reidratazione per via endovenosa è la strada da percorrere qualora per via orale o enterale non sia possibile (per la concomitanza di vomito, per la gravità del quadro. per la coesistenza di gravi diselettrolitemie o lo stato di coscienza compromesso). 
@@ -26,22 +30,15 @@ di cui se ne consiglia la lettura per una più chiara comprensione dei meccanism
 Anche la glicemia è parametro indispensabile per la scelta della soluzione per evitare l’incongrua somministrazione di glucosio a bambini disidratati ma diabetici.</p>
 <p>Infine anche la creatinemia sarà utile per escludere la concomitante presenza di insufficienza renale.</p>
 <p>In assenza di tutte queste informazioni potrà essere usata solo la soluzione fisiologica (NaCl 0.9% = 154 mEq/l) o Ringer (Sodio Lattato/Acetato 132 mEq/l). 
-Quanto già infuso (acqua e NaCl) sotto forma di soluzione fisiologica o Ringer (in attesa dell’esito degli accertamenti) andrà sottratto dal computo totale (vedi formule dalla n°15 alla n°21) dal programma infusionale.</p>
+Quanto già infuso (acqua e NaCl) sotto forma di soluzione fisiologica o Ringer (in attesa dell’esito degli accertamenti) andrà sottratto dal computo totale (vedi formule dalla n°15 alla n°20) dal programma infusionale.</p>
 <p>E bene che le variazioni di Na plasmatico siano tanto minori quanto più la natremia è alterata: 24 mEq/L/die per natriemie comprese tra 115 e 165 mEq/L; 12 mEq/L/die per natremie comprese tra 105-115 e 165-175 mEq/L; 6 mEq/L/die per  valori di partenza &gt;175 o &lt;105  mEq/L.</p> 
 <p>E' bene ricordare che questo calcolatore fornisce una stima matematica di come impostare la reidratazione. In corso d’opera il programma potrà/dovrà essere individualizzato anche sulla base dei valori di laboratorio e sulla situazione clinica del singolo paziente.</p>
 <p><strong>Per eventuali dubbi sulla compilazione basterà passare il cursore sopra al simbolo "?” per ottenere le specifiche relative al campo in esame</strong></p>
 <p></p>
 <h1><p><strong>Autori:</strong></p></h1>  
 <ol>
-<li><strong>Gian Mario Cortes</strong> ha creato la pagina web e inserito i calcoli che esulano dall'articolo di G.Ardissino</li>
-<li><strong>Gianluigi Ardissino</strong> con il suo articolo ha ispirato Gian Mario Cortes nella realizzazione della pagina e ha _____ i calcoli possibili in questa pagina web.</li>
-</ol>
-<h1><p><strong>Affiliazioni:</strong></p></h1>
-<ol>
-<li> Università degli studi di Cagliari, Scuola di Specializzazione in Pediatria</li>
-<li> Centro per la Cura e lo Studio della Sindrome Emolitico-Uremica
-(Center for HUS Control, Prevention and Management)
-Fondazione IRCCS Ca’ Granda Ospedale Maggiore Policlinico, Milano, Italia</li>
+<li><strong>Gian Mario Cortes</strong>, Medico Specializzando presso la Scuola di Specializzazione in Pediatria dell'Università degli studi di Cagliari ha creato la pagina web e inserito i calcoli che esulano dall'articolo di G.Ardissino</li>
+<li><strong>Gianluigi Ardissino</strong>, Referente del Centro di riferimento per la cura e lo studio della sindrome emolitico uremica (Center for HUS control, prevention and management) presso la Nefrologia, Dialisi e Trapianto Pediatrico della Fondazione IRCCS Ca’ Granda Ospedale Maggiore Policlinico di Milano. Con il suo articolo ha ispirato Gian Mario Cortes nella realizzazione della pagina e ha _____ i calcoli possibili in questa pagina web.</li>
 </ol>
 <button id="closeButton">Ok ho letto</button>
 </div>
@@ -77,34 +74,37 @@ Fondazione IRCCS Ca’ Granda Ospedale Maggiore Policlinico, Milano, Italia</li>
 
 <li>Eccesso / difetto di Na (mEq) = (Na desiderato (mmol/l) - Na attuale corretto per glicemia (mmol/l)) * Acqua Corporea (%)) * Working Weight (Kg)</li>
 
-<li>Soluzione aggiunta (mEq) = Soluzione aggiunta (ml) * Na soluzione (mEq/l)/1000</li>
+<li>Soluzione precedente (mEq) = Soluzione precedente (ml) * Na soluzione (mEq/l)/1000</li>
 
-<li>Soluzione aggiunta (ml/kg) = Soluzione aggiunta (ml)/ Working Weight (Kg)</li>
+<li>Soluzione precedente (ml/kg) = Soluzione precedente (ml)/ Working Weight (Kg)</li>
 
-<li>Soluzione aggiunta flusso del glucosio (mg/kg/min) =  (Soluzione aggiunta(ml) * 10 * Soluzione aggiunta Glucosio (%)) / Working Weight (Kg) / 1440</li>
+<li>Soluzione precedente flusso del glucosio (mg/kg/min) =  (Soluzione precedente(ml) * 10 * Soluzione precedente Glucosio (%)) / Working Weight (Kg) / 1440</li>
 
-<li>Liquidi aggiunti (ml/kg) = Liquidi aggiunti (ml)/ Working Weight (Kg)</td>
+<li>Altri liquidi precedenti (ml/kg) = Altri liquidi precedenti (ml)/ Working Weight (Kg)</td>
 
-<li>Liquidi aggiunti flusso del glucosio (mg/kg/min) = (Liquidi aggiunti (ml) * 10 *(Glucosio Liquidi aggiunti (g) * Liquidi aggiunti (ml)/100)) / Working Weight (Kg) / 1440</li>
+<li>Volume totale (ml) = Perdite (ml) + Perdite Prevedibili (ml) + ml Mantenimento (ml) - Soluzione precedente (ml) - Altri liquidi precedenti (ml)</td>
 
-<li>Volume totale (ml) = Perdite (ml) + Perdite Prevedibili (ml) + ml Mantenimento (ml) - Soluzione aggiunta (ml) - Liquidi aggiunti (ml)</td>
-
-<li>Totale Na (mEq) = Perdite Na (mEq) + Eccesso / difetto di Na (mEq) + Perdite Prevedibili Na (mEq) + Mantenimento Na (mEq) - Soluzione aggiunta (mEq) - Liquidi aggiunti Na (mEq)</li>
+<li>Totale Na (mEq) = Perdite Na (mEq) + Eccesso / difetto di Na (mEq) + Perdite Prevedibili Na (mEq) + Mantenimento Na (mEq) - Soluzione precedente (mEq) - Altri liquidi precedenti Na (mEq)</li>
 
 <li>Volume totale per Kg di peso (ml/kg) =  Volume totale (ml) / Working Weight (Kg)</li>
 
 <li>Velocità d'infusione(ml/h) = Volume totale (ml)/24</li>
 
-<li>Flusso di glucosio (mg/kg/min) = ((Volume totale (ml) * 10 * Soluzione di partenza Glucosio (%)) / Working Weight (Kg) / 1440) + Soluzione aggiunta flusso del glucosio (mg/kg/min) + Liquidi aggiunti flusso del glucosio (mg/kg/min)</li>
+<li>Flusso di glucosio (mg/kg/min) = ((Volume totale (ml) * 10 * Soluzione di partenza Glucosio (%)) / Working Weight (Kg) / 1440) + Soluzione precedente flusso del glucosio (mg/kg/min) + Altri liquidi precedenti flusso del glucosio (mg/kg/min)</li>
 
 </ol>
 <button id="closeButton2">Chiudi</button>
 </div>
 <div id="container01" class="containermenù">
-<h2>Menù</h2>
+<h2>Menù							
+<div class="tooltip-icon" id="tooltipIcon23">?
+            <div class="tooltip-text" id="tooltipText23">
+			I pulsanti a seguire possono servire per un calcolo avanzato in specifiche situazioni cliniche.                        
+		            </div>
+        </div></h2>
 	<div class="option-buttons1">
         <button id="advancedBtn" class="square-btn">Avanzato</button>
-        <button id="specificheBtn" class="square-btn">Bilancio</button>
+        <button id="specificheBtn" class="square-btn">Dettaglio</button>
         <button id="ScoreBtn" class="square-btn">Score</button>
         <button id="resetAllBtn" class="square-btn">Reset</button>
 		<button id="toggleInfoBox" class="square-btn">Info</button>
@@ -166,10 +166,10 @@ Fondazione IRCCS Ca’ Granda Ospedale Maggiore Policlinico, Milano, Italia</li>
         <input type="number" id="Nai" placeholder="mmol/l" step="0.5">
     </div>
     <div id="numberInput4Container" class="input-container">
-        <label for="Nap">Na previsto dopo 24 ore d'infusione (mmol/l):
+        <label for="Nap">Na desiderato dopo 24 ore d'infusione (mmol/l):
 				<div class="tooltip-icon" id="tooltipIcon4">?
             <div class="tooltip-text" id="tooltipText4">
-			Se il sodio iniziale è compreso tra 115-165 inserire un valore tale per cui la differenza con il sodio iniziale non superi i 24 mEq/l/die. Se il sodio iniziale è compreso tra 105-115 o tra 165-175 inserire un valore tale per cui la differenza con il sodio iniziale non superi i 12 mEq/l/die. Altrimenti inserire un valore tale per cui la la differenza con il sodio iniziale non superi i 6 meq/l/die.
+			Se il sodio iniziale è compreso tra 115-164 inserire un valore tale per cui la differenza con il sodio iniziale non superi i 24 mEq/l/die. Se il sodio iniziale è compreso tra 106-115 o tra 165-174 inserire un valore tale per cui la differenza con il sodio iniziale non superi i 12 mEq/l/die.  Se il sodio iniziale è &lt;106 o &gt;174 inserire un valore tale per cui la la differenza con il sodio iniziale non superi i 6 meq/l/die.
 		            </div>
         </div>
 		</label>
@@ -179,38 +179,43 @@ Fondazione IRCCS Ca’ Granda Ospedale Maggiore Policlinico, Milano, Italia</li>
 			<label for="infusionepercentglu">Seleziona la % di glucosio della soluzione da utilizzare:
 			<div class="tooltip-icon" id="tooltipIcon5">?
             <div class="tooltip-text" id="tooltipText5">
-			Inserire nel campo sottostante la % di glucosio della soluzione di partenza. In questa maniera vengono calcolati il flusso di glucosio in mg/kg/min in relazione alla velocità d'infusione.
+			Inserire nel campo sottostante la % di glucosio della soluzione di partenza. In questa maniera vengono calcolati il flusso di glucosio in mg/kg/min in relazione alla velocità d'infusione. Attenzione a non ottenere un flusso di glucosio troppo elevato.
 		    </div>
 			</div>						
 			</label>
-	        <input type="number" id="infusionepercentglu" placeholder="%" step="1">		
+    <select id="infusionepercentgluType">
+            <option value="G0">0</option>	
+            <option value="G2.5">2,5</option>
+            <option value="G5">5</option>
+            <option value="G10">10</option>
+	</select>			
     </div>	
 	 <div id="advancedContainer" class="input-container hidden">
         <div id="vomitiContainer" class="input-container">
-            <label for="vomiti">n° Vomiti prevedibili:
+            <label for="vomiti">n° Vomiti attesi:
 							<div class="tooltip-icon" id="tooltipIcon6">?
             <div class="tooltip-text" id="tooltipText6">
-			Inserire nel campo sottostante i n° di vomiti che si prevede che si avranno nell'arco della giornata. Entrerà nel computo delle perdite prevedibili ai fini della correzione.
+			Inserire nel campo sottostante i n° di vomiti attesi nelle 24 ore successive. Entreranno nel computo delle perdite prevedibili per la correzione.
 		            </div>
         </div>
 			</label>
             <input type="number" id="vomiti" placeholder="Numero">
         </div>
         <div id="diarreaContainer" class="input-container">
-			<label for="diarrea">n° Scariche di Diarrea prevedibili:
+			<label for="diarrea">n° Scariche di Diarrea attese:
 		<div class="tooltip-icon" id="tooltipIcon7">?
         <div class="tooltip-text" id="tooltipText7">
-		Inserire nel campo sottostante i n° di scariche di diarrea che si prevede che si avranno nell'arco della giornata. Entrerà nel computo delle perdite prevedibili ai fini della correzione.
+		Inserire nel campo sottostante i n° di scariche di diarrea attese nelle 24 ore successive. Entreranno nel computo delle perdite prevedibili per la correzione.
 		 </div>
         </div>
 			</label>
             <input type="number" id="diarrea" placeholder="Numero">
         </div>
         <div id="temperaturaContainer" class="input-container">
-            <label for="temperatura">Temperatura °C prevedibile:
+            <label for="temperatura">Temperatura °C attuale:
 							<div class="tooltip-icon" id="tooltipIcon8">?
             <div class="tooltip-text" id="tooltipText8">
-			Inserire nel campo sottostante la temperatura che si prevede che avrà nell'arco della giornata. Entrerà nel computo delle perdite prevedibili ai fini della correzione.
+			Inserire nel campo sottostante la temperatura attuale, se presente iperpiressia. Entrerà nel computo delle perdite prevedibili per la correzione.
 		            </div>
         </div>
 			</label>
@@ -220,14 +225,14 @@ Fondazione IRCCS Ca’ Granda Ospedale Maggiore Policlinico, Milano, Italia</li>
             <label for="glicemia">Glicemia (mg/dl):
 							<div class="tooltip-icon" id="tooltipIcon9">?
             <div class="tooltip-text" id="tooltipText9">
-			Inserire nel campo sottostante il valore di glicemia in mg/dl. Servirà a correggere il valore di sodiemia iniziale inserito in quanto sottostimato quando è presente iperglicemia e verrà utilizzato il valore corretto ai fini della correzione.
+			Inserire nel campo sottostante il valore di glicemia in mg/dl. Servirà a correggere il valore di sodiemia iniziale inserito in quanto sottostimato quando è presente iperglicemia e verrà utilizzato il valore corretto per la correzione.
 		            </div>
         </div>
 			</label>
             <input type="number" id="glicemia" placeholder="mg/dl" value="100">
         </div>
         <div id="naCorrettoContainer" class="input-container">
-            <label for="naCorretto">Na iniziale corretto per glicemia (mmol/l):
+            <label for="naCorretto">Na iniziale alla glicemia indicata (mmol/l):
 							<div class="tooltip-icon" id="tooltipIcon10">?
             <div class="tooltip-text" id="tooltipText10">
 			Sodio ematico iniziale corretto per la glicemia inserita.
@@ -238,10 +243,10 @@ Fondazione IRCCS Ca’ Granda Ospedale Maggiore Policlinico, Milano, Italia</li>
         </div>
 
         <div id="soluzioneTipoContainer" class="input-container">
-            <label for="solutionType">Soluzione aggiunta (tipo):
+            <label for="solutionType">Soluzione precedente infusa (tipo):
 							<div class="tooltip-icon" id="tooltipIcon11">?
             <div class="tooltip-text" id="tooltipText11">
-			Se prima della correzione è stata utilizzata un'altra soluzione selezionarla dal menù a tendina sottostante, in relazione agli ml inseriti nel campo in basso verranno calcolati i mEq corrispondenti e quindi sottratti insieme agli ml dal computo totale.
+			Se prima dell’inizio dell’attuale programma infusionale, nelle poche ore immediatamente precedenti, è stata utilizzata un’altra soluzione, selezionare dal menù a tendina sottostante il tipo di soluzione. Il dato verrà usato per sottrarre dal programma infusionale il volume e il sodio già infusi.
 		            </div>
         </div>
 			</label>
@@ -293,50 +298,60 @@ Fondazione IRCCS Ca’ Granda Ospedale Maggiore Policlinico, Milano, Italia</li>
             <input type="number" id="Galgluperc" placeholder="%">
         </div>		
         <div id="soluzioneMlContainer" class="input-container">
-            <label for="soluzioneMl">Soluzione aggiunta precedentemente (ml):
+            <label for="soluzioneMl">Soluzione precedente infusa (ml):
 							<div class="tooltip-icon" id="tooltipIcon14">?
             <div class="tooltip-text" id="tooltipText14">
-			Se prima della correzione è stata utilizzata un'altra soluzione selezionarla dal menù a tendina sovrastante, in relazione agli ml inseriti nel campo sottostante verranno calcolati i mEq corrispondenti e quindi sottratti insieme agli ml dal computo totale.
+			Se prima dell’inizio dell’attuale programma infusionale, nelle poche ore immediatamente precedenti, è stata utilizzata un’altra soluzione, selezionare dal menù a tendina sottostante il tipo di soluzione. Il dato verrà usato per sottrarre dal programma infusionale il volume e il sodio già infusi.
 		            </div>
         </div>
 			</label>
             <input type="number" id="soluzioneMl" placeholder="ml">
         </div>
         <div id="liquidiAggiuntiContainer" class="input-container">
-            <label for="liquidiAggiuntiMl">Liquidi aggiunti in precedenza (ml):
+            <label for="liquidiAggiuntiMl">Altri liquidi somministrati precedentemente (ml):
 							<div class="tooltip-icon" id="tooltipIcon15">?
             <div class="tooltip-text" id="tooltipText15">
-			Se prima della correzione sono stati utilizzati altri liquidi e non si conoscono i mEq/l ma si conoscono gli ml e i mEq infusi e i g di glucosio allora si può utilizzare il campo sottostante . Verranno sottratti gli ml, i mEq e i g di glucosio dal computo totale ai fini della correzione.
+			Se il paziente ha assunto altri liquidi e non si conoscono i mEq/l ma si conoscono gli ml e i mEq infusi allora si può utilizzare il campo sottostante. Il dato verrà usato per sottrarre dal programma infusionale il volume e il sodio già infusi.
 		            </div>
         </div>
 			</label>
             <input type="number" id="liquidiAggiuntiMl" placeholder="ml">
         </div>
         <div id="liquidiAggiuntiNaContainer" class="input-container">
-            <label for="liquidiAggiuntiNa">Liquidi aggiunti in precedenza (Na mEq):
+            <label for="liquidiAggiuntiNa">Altri liquidi somministrati precedentemente (Na mEq):
 							<div class="tooltip-icon" id="tooltipIcon16">?
             <div class="tooltip-text" id="tooltipText16">
-			Se prima della correzione sono stati utilizzati altri liquidi e non si conoscono i mEq/l ma si conoscono gli ml e i mEq infusi allora si può utilizzare il campo sottostante . Verranno sottratti gli ml di liquido e i mEq di Na dal computo totale ai fini della correzione.
+			Se il paziente ha assunto altri liquidi e non si conoscono i mEq/l ma si conoscono gli ml e i mEq infusi allora si può utilizzare il campo sottostante. Il dato verrà usato per sottrarre dal programma infusionale il volume e il sodio già infusi.
 		            </div>
         </div>
 			</label>
             <input type="number" id="liquidiAggiuntiNa" placeholder="mEq">
         </div>
-        <div id="liquidiAggiuntiGluContainer" class="input-container">
-            <label for="liquidiAggiuntiGlug">Liquidi aggiunti in precedenza (Glucosio g):
-							<div class="tooltip-icon" id="tooltipIcon17">?
-            <div class="tooltip-text" id="tooltipText17">
-			Se prima della correzione sono stati utilizzati altri liquidi e non si conosce la % di glucosio ma si conoscono gli ml e i g di glucosio allora si può utilizzare il campo sottostante . Verranno sottratti gli ml di liquido, i g di glucosio dal computo totale ai fini della correzione.
-		            </div>
-        </div>
-			</label>
-            <input type="number" id="liquidiAggiuntiGlug" placeholder="g">
-        </div>		
     </div>	
 </div>
 <div id="container2" class="container2">
 <h2>Infusione ideale</h2>
-    <div id="numberOutput1Container" class="output-container">
+        <div id="numberOutput3Container" class="output-container">
+        <label for="mlOutputValue">Volume da infondere in 24 ore (ml):
+						<div class="tooltip-icon" id="tooltipIcon20">?
+            <div class="tooltip-text" id="tooltipText20">
+			Questo valore indica il volume di liquidi in ml da infondere in 24 ore.
+		            </div>
+        </div>
+		</label>
+		<output id="mlOutputValue" class="output-field"></output>
+    </div> 
+	        <div id="numberOutput5Container" class="output-container">
+        <label for="nameqOutputValue">Na da aggiungere al volume da infondere (mEq):
+						<div class="tooltip-icon" id="tooltipIcon22">?
+            <div class="tooltip-text" id="tooltipText22">
+			Questo valore indica il valore in mEq del sodio da aggiungere al volume di liquidi sopra indicato da infondere in 24 ore.
+		            </div>
+        </div>
+		</label>
+		<output id="nameqOutputValue" class="output-field"></output>
+    </div> 
+	<div id="numberOutput1Container" class="output-container">
         <label for="naOutputValue">Concentrazione Na (mEq/l):
 						<div class="tooltip-icon" id="tooltipIcon18">?
             <div class="tooltip-text" id="tooltipText18">
@@ -356,21 +371,11 @@ Fondazione IRCCS Ca’ Granda Ospedale Maggiore Policlinico, Milano, Italia</li>
 		</label>
         <output id="mlhOutputValue" class="output-field"></output>
     </div>
-    <div id="numberOutput3Container" class="output-container">
-        <label for="mlOutputValue">Volume da infondere in 24 ore (ml):
-						<div class="tooltip-icon" id="tooltipIcon20">?
-            <div class="tooltip-text" id="tooltipText20">
-			Questo valore indica il volume di liquidi in ml da infondere in 24 ore.
-		            </div>
-        </div>
-		</label>
-		<output id="mlOutputValue" class="output-field"></output>
-    </div> 
     <div id="numberOutput4Container" class="output-container">
         <label for="glucosioOutputValue">Flusso di glucosio (mg/kg/min):
 		<div class="tooltip-icon" id="tooltipIcon21">?
             <div class="tooltip-text" id="tooltipText21">
-			Il valore nel campo sottostante indica il flusso di glucosio in mg/kg/min in relazione alla velocità indicata, alla % di glucosio utilizzata ed alle altre soluzioni o liquidi aggiunti precedentemente. 
+			Il valore nel campo sottostante indica il flusso di glucosio in mg/kg/min in relazione alla % di glucosio utilizzata, alla velocità d'infusione,  ed ad altre eventuali soluzioni utilizzate. Attenzione a non ottenere un flusso troppo elevato.
 		            </div>
         </div>
 		</label>
@@ -382,13 +387,13 @@ Fondazione IRCCS Ca’ Granda Ospedale Maggiore Policlinico, Milano, Italia</li>
      <table>
          <tr>
              <td colspan="3">
-                 <button id="pesoBenessereBtn" class="square-btn active">Peso in Benessere Sconosciuto</button>
-                 <button id="pesoAttualeBtn" class="square-btn">Peso Attuale Sconosciuto</button>
+                 <button id="pesoBenessereBtn" class="square-btn active">Peso in Benessere non noto</button>
+                 <button id="pesoAttualeBtn" class="square-btn">Peso Attuale non noto</button>
 				 <button id="resetScoreBtn" class="square-btn">Reset Score</button>
              </td>
          </tr>
          <tr id="scoreTitleRow">
-             <td colspan="3">Score di Gorelick per Peso in Benessere Sconosciuto, completare i campi per una stima</td>
+             <td colspan="3">Score di Gorelick per Peso in Benessere non noto, completa i campi</td>
          </tr>
             <tr>
                 <td>Condizioni generali</td>
@@ -491,7 +496,7 @@ Fondazione IRCCS Ca’ Granda Ospedale Maggiore Policlinico, Milano, Italia</li>
                 <td id="score10">0</td>
             </tr>
             <tr>
-                <td>Totale score</td>
+                <td>Score Totale</td>
                 <td></td>
                 <td id="totalScore">0</td>
             </tr>
@@ -509,16 +514,16 @@ Fondazione IRCCS Ca’ Granda Ospedale Maggiore Policlinico, Milano, Italia</li>
     <div id="Specifichetable" class="hidden">
        <table>
             <tr>
-                <td colspan="9">Tabella del Bilancio Idrico</td>
+                <td colspan="9">Dettaglio del calcolo relativo al programma infusionale</td>
             </tr>
             <tr>
                 <td></td>
-                <td>ml</td>
-                <td>Na mEq</td>
-                <td>ml/kg</td>
-                <td>ml/h</td>
-                <td>Na mEq/l</td>
-                <td colspan="3">Glucosio mg/kg/min</td>          
+                <td>Volume (ml)</td>
+                <td>Na (mEq)</td>
+                <td>Volume (ml/kg)</td>
+                <td>Velocità d'infusione (ml/h)</td>
+                <td>Concentrazione Na (mEq/l)</td>
+                <td colspan="3">Flusso di Glucosio (mg/kg/min)</td>          
             </tr>
             <tr>
                 <td>Perdite</td>
