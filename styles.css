@@ -14,7 +14,7 @@ body {
 .header {
     display: flex;
     align-items: center; /* Allinea verticalmente */
-    justify-content: space-between; /* Distribuisce spazio tra testo e logo */
+    justify-content: space-evenly; /* Distribuisce spazio tra testo e logo */
     gap: 10px; /* Spaziatura tra logo e testo */
     padding: 10px;
 }
@@ -149,7 +149,7 @@ body {
 	margin-left: 50px;
     border: none; /* Rimuove il bordo esterno */
 	align-self: baseline;	
-	order: 2;
+	order: 0;
 }
 
 .containermenù{
@@ -164,7 +164,7 @@ body {
 	margin-left: 50px;
     border: none; /* Rimuove il bordo esterno */
 	align-self: baseline;
-	order: 0;
+	order: 2;
 }
 
 .container2 {
@@ -179,7 +179,7 @@ body {
 	margin-right: 50px;
 	margin-left: 50px;	
 	align-self: baseline;
-	order: 2;	
+	order: 1;	
 }
 
 .container4 {
