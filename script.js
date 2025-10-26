@@ -984,4 +984,3 @@ document.getElementById('resetAllBtn').addEventListener('click', function() {
     aggiornaScoretable();
     aggiornaSpecificheTable();
 });	
-
