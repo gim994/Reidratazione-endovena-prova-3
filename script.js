@@ -781,7 +781,7 @@ const infusionepercentglu = {
     SodioDaPerdereRecuperare = (Nap - Naig) * AcquaPerc * WW;
 }
 	
-    const TotMeq = ((PerditeMeq + SodioDaPerdereRecuperare)) + PerditeprevedibiliMeq + mantenimentoMeq() - soluzioneMeq - liquidiAggiuntiNa;
+    const TotMeq = ((PerditeMeq + SodioDaPerdereRecuperare)) + PerditeprevedibiliMeq + mantenimentoMeq() + soluzioneMeq + liquidiAggiuntiNa;
     const Totmgkgmin = ((TotMl * 10 * infusionipercentglu.glucosio) / WW / 1440) + mgkgminmsoluzione;
     const Totmlh = TotMl / 24;
 	
@@ -984,3 +984,4 @@ document.getElementById('resetAllBtn').addEventListener('click', function() {
     aggiornaScoretable();
     aggiornaSpecificheTable();
 });	
+
